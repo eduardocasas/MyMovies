@@ -11,7 +11,7 @@ $(document).ready
                 function()
                 {
                     $('#actor_table tbody').append(
-                        '<tr><td><a href="/person/'+id+'#cast" class="show"></a></td>\n\\n\
+                        '<tr><td class="button_container"><a href="/person/'+id+'#cast" class="show"></a></td>\n\\n\
                         <td class="field_picture"><img src="/pictures/person/'+id+'/tiny.jpg" /></td>\n\
                         <td>'+name+'</td>\n\
                         <td>'+surname+'</td>\n\
