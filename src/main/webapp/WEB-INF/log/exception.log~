@@ -1,0 +1,52 @@
+entra3
+[2m2014-03-16 11:03:53.885[0;39m [32m INFO[0;39m [35m7534[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36morg.thymeleaf.TemplateEngine            [0;39m [2m:[0;39m [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+[2m2014-03-16 11:03:53.979[0;39m [32m INFO[0;39m [35m7534[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36mo.t.t.AbstractTemplateResolver          [0;39m [2m:[0;39m [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.templateresolver.TemplateResolver
+[2m2014-03-16 11:03:53.979[0;39m [32m INFO[0;39m [35m7534[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36mo.t.t.AbstractTemplateResolver          [0;39m [2m:[0;39m [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+[2m2014-03-16 11:03:53.979[0;39m [32m INFO[0;39m [35m7534[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36mo.t.m.AbstractMessageResolver           [0;39m [2m:[0;39m [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[2m2014-03-16 11:03:53.979[0;39m [32m INFO[0;39m [35m7534[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36mo.t.m.AbstractMessageResolver           [0;39m [2m:[0;39m [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+[2m2014-03-16 11:03:53.984[0;39m [32m INFO[0;39m [35m7534[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36morg.thymeleaf.TemplateEngine.CONFIG     [0;39m [2m:[0;39m [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * XML
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.templateresolver.TemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+[2m2014-03-16 11:03:53.985[0;39m [32m INFO[0;39m [35m7534[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36morg.thymeleaf.TemplateEngine            [0;39m [2m:[0;39m [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+[2m2014-03-16 11:05:33.643[0;39m [32m INFO[0;39m [35m7534[0;39m [2m---[0;39m [2m[       Thread-2][0;39m [36mationConfigEmbeddedWebApplicationContext[0;39m [2m:[0;39m Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7497e90e: startup date [Sun Mar 16 11:03:48 CET 2014]; root of context hierarchy
+[2m2014-03-16 11:05:33.646[0;39m [32m INFO[0;39m [35m7534[0;39m [2m---[0;39m [2m[       Thread-2][0;39m [36mo.s.j.e.a.AnnotationMBeanExporter       [0;39m [2m:[0;39m Unregistering JMX-exposed beans on shutdown
+entra1
+entra2
+entra3
+[2m2014-03-16 11:05:55.433[0;39m [32m INFO[0;39m [35m7678[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36morg.thymeleaf.TemplateEngine            [0;39m [2m:[0;39m [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+[2m2014-03-16 11:05:55.516[0;39m [32m INFO[0;39m [35m7678[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36mo.t.t.AbstractTemplateResolver          [0;39m [2m:[0;39m [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.templateresolver.TemplateResolver
+[2m2014-03-16 11:05:55.516[0;39m [32m INFO[0;39m [35m7678[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36mo.t.t.AbstractTemplateResolver          [0;39m [2m:[0;39m [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+[2m2014-03-16 11:05:55.517[0;39m [32m INFO[0;39m [35m7678[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36mo.t.m.AbstractMessageResolver           [0;39m [2m:[0;39m [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[2m2014-03-16 11:05:55.517[0;39m [32m INFO[0;39m [35m7678[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36mo.t.m.AbstractMessageResolver           [0;39m [2m:[0;39m [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+[2m2014-03-16 11:05:55.521[0;39m [32m INFO[0;39m [35m7678[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36morg.thymeleaf.TemplateEngine.CONFIG     [0;39m [2m:[0;39m [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * XML
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * VALIDXML
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.templateresolver.TemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+[2m2014-03-16 11:05:55.522[0;39m [32m INFO[0;39m [35m7678[0;39m [2m---[0;39m [2m[nio-8181-exec-1][0;39m [36morg.thymeleaf.TemplateEngine            [0;39m [2m:[0;39m [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+[2m2014-03-16 11:08:50.635[0;39m [32m INFO[0;39m [35m7678[0;39m [2m---[0;39m [2m[       Thread-2][0;39m [36mationConfigEmbeddedWebApplicationContext[0;39m [2m:[0;39m Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2d47f26f: startup date [Sun Mar 16 11:05:40 CET 2014]; root of context hierarchy
+[2m2014-03-16 11:08:50.639[0;39m [32m INFO[0;39m [35m7678[0;39m [2m---[0;39m [2m[       Thread-2][0;39m [36mo.s.j.e.a.AnnotationMBeanExporter       [0;39m [2m:[0;39m Unregistering JMX-exposed beans on shutdown

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html th:include="layout/base :: page">
+    <title th:fragment="title">Película</title>
+    <link rel="stylesheet" href="/css/movie.css" type="text/css" th:fragment="css" />
+    <script type="text/javascript" src="/javascript/movie.js" th:fragment="javascript"></script>
+    <div th:fragment="content">
+        <iframe id="upload_picture_iframe" name="upload_picture_iframe" th:src="'/movies/'+${movie['id']}+'/upload-picture'"></iframe>
+        <div id="wrapper_remove_movie_window" class="wrapper_fadein_window">
+            <article class="fadein_window">
+                <button class="close" title="cerrar"></button>
+                <h1>¿Seguro que quieres eliminar esta película?</h1>
+                <button id="remove_yes" class="button">Sí</button>
+                <button id="remove_no" class="button">No</button>
+            </article>
+            <div class="disable_window_background"></div>
+        </div>
+        <button class="button hide" id="save_edit_button">Guardar</button>
+        <button class="button hide" id="cancel_edit_button">Cancelar</button>
+        <button class="button display_window" id="remove_movie_button" data-window="wrapper_remove_movie_window">Eliminar</button>
+        <button class="button" id="edit_movie_button">Editar</button>
+        <h1 class="title"><span class="field_name edit_field" th:text="${movie['title']}" /></h1>
+        <img width="180px" height="250px" th:class="${movie['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/movie/'+${movie['id']}+'/big.jpg'" th:alt="'Foto: '+${movie['title']}" id="picture" />
+        <form th:action="'/movies/'+${movie['id']}+'/upload-picture'" method="post" enctype="multipart/form-data" id="upload_picture_form" target="upload_picture_iframe">
+            <input type="file" id="upload_picture" name="upload_picture" />
+        </form>
+        <button id="remove_picture" class="remove_button">Borrar</button>
+        <table id="data">
+            <tbody>
+                <tr>
+                    <th>Puntuación:</th>
+                    <td class="field_score edit_field" th:text="${movie['score']}" />
+                </tr>
+                <tr>
+                    <th>Año:</th>
+                    <td class="field_birthday edit_field" th:text="${movie['year']}" />
+                </tr>
+                <tr>
+                    <th>País:</th>
+                    <td id="field_country">
+                        <span th:text="${movie['country_name']}" th:attr="data-country_id=${movie['country_id']}" />
+                        <select class="hide" name="contries">
+                            <option th:each="country : ${countries}" th:value="${country['id']}" th:text="${country['name']}" />
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="subtitle">Dirección</h2>
+        <article  th:if="directors != null" id="directors">
+            <table id="director_movie_table" class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="field_picture"></th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>País</th>
+                        <th class="field_year">Año</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="director : ${movieDirectors}" th:attr="data-director_id=${director['id']}">
+                        <td class="button_container"><a class="show" th:href="@{|/person/${director['person_id']}/#directors|}" /></td>
+                        <td class="field_picture"><img th:class="${director['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/person/'+${director['person_id']}+'/tiny.jpg'" th:alt="'Foto: '+${director['name']}+' '+${director['surname']}" /></td>
+                        <td th:text="${director['name']}" />
+                        <td th:text="${director['surname']}" />
+                        <td th:text="${director['country_name']}" />
+                        <td th:text="${director['birthday']}" class="field_year" />
+                    </tr>
+                </tbody>
+                <tfoot class="hide">
+                    <tr th:each="director : ${directors}">
+                        <td class="button_container"><a class="show" th:href="@{|/person/${director['person_id']}/#directors|}" /></td>
+                        <td class="field_picture"><img th:class="${director['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/person/'+${director['person_id']}+'/tiny.jpg'" th:alt="'Foto: '+${director['name']}+' '+${director['surname']}" /></td>
+                        <td>
+                            <input type="checkbox" th:value="${director['id']}" />
+                            <span th:text="${director['name']}" />
+                        </td>
+                        <td th:text="${director['surname']}" />
+                        <td th:text="${director['country_name']}" />
+                        <td th:text="${director['birthday']}" class="field_year" />
+                    </tr>
+                </tfoot>
+            </table>
+        </article>
+        <h2 class="subtitle">Reparto</h2>
+        <article  th:if="actors != null">
+            <table id="actor_movie_table" class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="field_picture"></th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>País</th>
+                        <th class="field_year">Año</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="actor : ${movieActors}" th:attr="data-actor_id=${actor['id']}">
+                        <td class="button_container"><a class="show" th:href="@{|/person/${actor['person_id']}/#actuación|}" /></td>
+                        <td class="field_picture"><img th:class="${actor['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/person/'+${actor['person_id']}+'/tiny.jpg'" th:alt="'Foto: '+${actor['name']}+' '+${actor['surname']}" /></td>
+                        <td th:text="${actor['name']}" />
+                        <td th:text="${actor['surname']}" />
+                        <td th:text="${actor['country_name']}" />
+                        <td th:text="${actor['birthday']}" class="field_year" />
+                    </tr>
+                </tbody>
+                <tfoot class="hide">
+                    <tr th:each="actor : ${actors}">
+                        <td class="button_container"><a class="show" th:href="@{|/person/${actor['person_id']}/#actuación|}" /></td>
+                        <td class="field_picture"><img th:class="${actor['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/person/'+${actor['person_id']}+'/tiny.jpg'" th:alt="'Foto: '+${actor['name']}+' '+${actor['surname']}" /></td>
+                        <td>
+                            <input type="checkbox" th:value="${actor['id']}" />
+                            <span th:text="${actor['name']}" />
+                        </td>
+                        <td th:text="${actor['surname']}" />
+                        <td th:text="${actor['country_name']}" />
+                        <td th:text="${actor['birthday']}" class="field_year" />
+                    </tr>
+                </tfoot>
+            </table>
+        </article>
+    </div>
+</html>

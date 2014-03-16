@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html th:include="layout/base :: page">
+    <title th:fragment="title">Películas</title>
+    <link rel="stylesheet" href="/css/movie.css" type="text/css" th:fragment="css" />
+    <script type="text/javascript" src="/javascript/movie.js" th:fragment="javascript"></script>
+    <div th:fragment="content">
+        <button class="button display_window" id="add_movie_button" data-window="wrapper_add_movie_window">Añadir</button>
+        <div id="wrapper_add_movie_window" class="wrapper_fadein_window">
+            <form action="#" method="post" class="fadein_window">
+                <button class="close" title="cerrar"></button>
+                <h1>Nueva Película</h1>
+                <table>
+                    <tr>
+                        <th><label for="form_title">Título:</label></th>
+                        <td><input type="text" name="title" id="form_title" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <th><label for="form_year">Año:</label></th>
+                        <td><input type="text" name="year" id="form_year" maxlength="4" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <th><label for="form_score">Puntuación:</label></th>
+                        <td><input type="text" name="score" id="form_score" maxlength="4" required="required" /></td>
+                    </tr>
+                    <tr class="user_data">
+                        <th><label for="form_country">País:</label></th>
+                        <td>
+                            <select name="contries" id="form_country">
+                                <option th:each="country : ${countries}" th:value="${country['id']}" th:text="${country['name']}" />
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" id="submit_add_movie_button" class="submit_button" value="crear" /></td>
+                    </tr>
+                </table>
+            </form>
+            <div class="disable_window_background"></div>
+        </div>
+        <h1 class="title">Películas</h1>
+        <table id="movie_table" class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="field_picture"></th>
+                    <th>Título</th>
+                    <th>País</th>
+                    <th class="field_year">Año</th>
+                    <th class="field_score">Puntuación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="movie : ${movies}">
+                    <td class="button_container"><a class="show" th:href="@{|/movies/${movie['id']}|}" /></td>
+                    <td class="field_picture"><img th:class="${movie['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/movie/'+${movie['id']}+'/tiny.jpg'" th:alt="'Foto: '+${movie['title']}" /></td>
+                    <td th:text="${movie['title']}" />
+                    <td th:text="${movie['country_name']}" />
+                    <td th:text="${movie['year']}" class="field_year" />
+                    <td th:text="${movie['score']}" class="field_score" />
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</html>

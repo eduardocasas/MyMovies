@@ -1,0 +1,102 @@
+/* ---------- index ---------- */
+
+#add_movie_button
+{
+    float: right;
+}
+#wrapper_add_movie_window form
+{
+    margin-left: 210px;
+}
+    #wrapper_add_movie_window h1
+    {
+        font-family : "league-gothic";
+        font-size: 2.3em;
+        font-weight: normal;
+        margin-bottom: 10px;
+    }
+    #wrapper_add_movie_window table
+    {
+        margin: 0 auto;
+    }
+    #wrapper_add_movie_window th
+    {
+        text-align: right;
+        padding: 5px;
+    }
+    #wrapper_add_movie_window td
+    {
+        padding: 5px;
+    }
+        #submit_add_actor_button
+        {
+            margin-top: 20px;
+        }
+
+/* ---------- info ---------- */
+
+h2
+{
+    clear: both;    
+}
+#cancel_edit_button,
+#save_edit_button,
+#edit_movie_button,
+#remove_movie_button
+{
+    float: right;
+    margin-left: 10px;
+}
+#wrapper_remove_movie_window .fadein_window
+{
+    margin: 100px 0 0 190px;
+    text-align: center;
+}
+    #wrapper_remove_movie_window h1
+    {
+        clear: both;
+        font-size: 1.2em;
+        margin-top: 30px;
+        text-align: center;
+    }
+    #wrapper_remove_movie_window .button
+    {
+        margin: 10px 5px 20px 5px;
+        text-align: center;
+        width: 50px;
+    }
+#picture
+{
+    float: right;
+    margin: 20px 0 0 0;
+}
+#remove_picture
+{
+    display: none;
+    float: right;
+    margin: 20px 15px 0 0;
+}
+#upload_picture_form
+{
+    clear: both;
+    display: none;
+    float: right;
+    margin-top: 20px;
+}
+#data
+{
+    margin: 10px 0 0 0;
+}
+    #data th,
+    #data td
+    {
+        padding: 6px 3px;
+    }
+        #data th
+        {
+            text-align: right;
+        }
+        #data .edit_field
+        {
+            padding: 3px 3px;
+        }

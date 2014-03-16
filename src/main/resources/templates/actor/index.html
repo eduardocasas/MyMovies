@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html th:include="layout/base :: page">
+    <title th:fragment="title">Actores</title>
+    <link rel="stylesheet" href="/css/actor.css" type="text/css" th:fragment="css" />
+    <script type="text/javascript" src="/javascript/actor.js" th:fragment="javascript"></script>
+    <div th:fragment="content">
+        <button class="button display_window" id="add_actor_button" data-window="wrapper_add_actor_window">Añadir</button>
+        <div id="wrapper_add_actor_window" class="wrapper_fadein_window">
+            <form action="#" method="post" class="fadein_window">
+                <button class="close" title="cerrar"></button>
+                <h1>Nuevo Director</h1>
+                <table>
+                    <tr>
+                        <th><label for="form_person">Persona:</label></th>
+                        <td>
+                            <select name="person" id="form_person">
+                                <option value="0">Ninguno</option>
+                                <option th:each="person : ${people}" th:attr="data-name=${person['name']},data-surname=${person['surname']},data-birthday=${person['birthday']},data-country=${person['country_name']}" th:value="${person['id']}" th:text="${person['name']+' '+person['surname']}" />
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="user_data">
+                        <th><label for="form_name">Nombre:</label></th>
+                        <td><input type="text" name="name" id="form_name" /></td>
+                    </tr>
+                    <tr class="user_data">
+                        <th><label for="form_surname">Apellidos:</label></th>
+                        <td><input type="text" name="surname" id="form_surname" /></td>
+                    </tr>
+                    <tr class="user_data">
+                        <th><label for="form_birthday">Nacimiento:</label></th>
+                        <td><input type="text" name="birthday" id="form_birthday" /></td>
+                    </tr>
+                    <tr class="user_data">
+                        <th><label for="form_country">País:</label></th>
+                        <td>
+                            <select name="contries" id="form_country">
+                                <option th:each="country : ${countries}" th:value="${country['id']}" th:text="${country['name']}" />
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" id="submit_add_actor_button" class="submit_button" value="Guardar" /></td>
+                    </tr>
+                </table>
+            </form>
+            <div class="disable_window_background"></div>
+        </div>
+        <h1 class="title">Actores</h1>
+        <table id="actor_table" class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="field_picture"></th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>País</th>
+                    <th class="field_year">Año</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="actor : ${actors}" th:attr="data-country=${actor['country_id']},data-id=${actor['id']}">
+                    <td class="button_container"><a class="show" th:href="@{|/person/${actor['person_id']}#cast|}" /></td>
+                    <td class="field_picture"><img th:class="${actor['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/person/'+${actor['person_id']}+'/tiny.jpg'" th:alt="'Foto: '+${actor['name']}+' '+${actor['surname']}" /></td>
+                    <td class="field_name" th:text="${actor['name']}" />
+                    <td class="field_surname" th:text="${actor['surname']}" />
+                    <td class="field_country" th:text="${actor['country_name']}" />
+                    <td class="field_year" th:text="${actor['birthday']}" />
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</html>

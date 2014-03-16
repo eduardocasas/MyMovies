@@ -1,0 +1,99 @@
+/* ---------- info ---------- */
+
+#cancel_edit_button,
+#save_edit_button,
+#edit_person_button,
+#remove_person_button
+{
+    float: right;
+    margin-left: 10px;
+}
+#wrapper_remove_person_window .fadein_window
+{
+    margin: 100px 0 0 190px;
+    text-align: center;
+}
+    #wrapper_remove_person_window h1
+    {
+        clear: both;
+        font-size: 1.2em;
+        margin-top: 30px;
+        text-align: center;
+    }
+    #wrapper_remove_person_window .button
+    {
+        margin: 10px 5px 20px 5px;
+        text-align: center;
+        width: 50px;
+    }
+#picture
+{
+    float: right;
+    margin: 20px 0 0 0;
+}
+#remove_picture
+{
+    display: none;
+    float: right;
+    margin: 20px 15px 0 0;
+}
+#upload_picture_form
+{
+    clear: both;
+    display: none;
+    float: right;
+    margin-top: 20px;
+}
+#data
+{
+    margin: 10px 0 0 0;
+}
+    #data th,
+    #data td
+    {
+        padding: 6px 3px;
+    }
+        #data th
+        {
+            text-align: right;
+        }
+        #data .edit_field
+        {
+            padding: 3px 3px;
+        }
+#person_role
+{
+    display: none;
+}
+#tabs
+{
+    border-bottom: 1px solid #999;
+    clear: both;
+    margin: 20px 0 0 0;
+    width: 100%;
+}
+    #tabs li
+    {
+        display: inline-block;
+    }
+        #tabs a
+        {
+            border: 1px solid #999;
+            border-bottom: none;
+            color: #505050;
+            display: block;
+            margin: 0;
+            padding: 5px 10px;
+        }
+            #tabs a.selected
+            {
+                font-weight: bold;
+            }
+        
+/* ---------- Edit Mode ---------- */
+
+input[type=text].input_edit_mode
+{
+    background: #eee;
+    border: none;
+}

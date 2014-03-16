@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html th:include="layout/base :: page">
+    <title th:fragment="title">Portada</title>
+    <link rel="stylesheet" href="/css/home.css" type="text/css" th:fragment="css" />
+    <div th:fragment="content">
+        <section class="section">
+            <h1 class="title">Novedades</h1>
+            <h2 class="subtitle">Últimas películas añadidas</h2>
+            <table class="table">
+                <tr>
+                    <th></th>
+                    <th class="field_picture"></th>
+                    <th>Título</th>
+                    <th>País</th>
+                    <th class="field_year">Año</th>
+                    <th class="field_score">Puntuación</th>
+                </tr>
+                <tr th:each="movie : ${movies}">
+                    <td class="button_container"><a class="show" th:href="@{|/movies/${movie['id']}|}" /></td>
+                    <td class="field_picture"><img th:class="${movie['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/movie/'+${movie['id']}+'/tiny.jpg'" th:alt="'Foto: '+${movie['title']}" /></td>
+                    <td th:text="${movie['title']}" />
+                    <td th:text="${movie['country_name']}" />
+                    <td th:text="${movie['year']}" class="field_year" />
+                    <td th:text="${movie['score']}" class="field_score" />
+                </tr>
+            </table>
+            <h2 class="subtitle">Últimos personajes añadidos</h2>
+            <table class="table">
+                <tr>
+                    <th></th>
+                    <th class="field_picture"></th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>País</th>
+                    <th class="field_year">Año</th>
+                </tr>
+                <tr th:each="person : ${people}">
+                    <td class="button_container"><a class="show" th:href="@{|/person/${person['id']}|}" /></td>
+                    <td class="field_picture"><img th:class="${person['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/person/'+${person['id']}+'/tiny.jpg'" th:alt="'Foto: '+${person['name']}+' '+${person['surname']}" /></td>
+                    <td class="field_name" th:text="${person['name']}" />
+                    <td class="field_surname" th:text="${person['surname']}" />
+                    <td class="field_country" th:text="${person['country_name']}" />
+                    <td class="field_year" th:text="${person['birthday']}" />
+                </tr>
+            </table>
+        </section>
+        <section class="section">
+            <h1 class="title">Global</h1>
+            <table>
+                <tr>
+                    <th>Películas:</th>
+                    <td th:text="${totalMovies}" />
+                </tr>
+                <tr>
+                    <th>Actores:</th>
+                    <td th:text="${actorActors}" />
+                </tr>
+                <tr>
+                    <th>Directores:</th>
+                    <td th:text="${totalDirectors}" />
+                </tr>
+            </table>
+        </section>
+    </div>
+</html>

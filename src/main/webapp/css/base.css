@@ -1,0 +1,462 @@
+@font-face
+{
+    font-family : "league-gothic";
+    src: url(/fonts/league_gothic/league_gothic-webfont.eot);
+    src: url(/fonts/league_gothic/league_gothic-webfont.eot?#iefix) format('embedded-opentype'),
+         url(/fonts/league_gothic/league_gothic-webfont.ttf) format('truetype'),
+         url(/fonts/league_gothic/league_gothic-webfont.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary,
+video
+{
+    display: block;
+}
+*
+{
+    border: none;
+    color: #505050;
+    margin: 0;
+    padding: 0;
+}
+iframe
+{
+    display: none;
+}
+:focus
+{
+    outline:none;
+}
+::-moz-focus-inner
+{
+    border:0;
+}
+a:link, a:visited
+{
+    text-decoration:none;
+    outline: none;
+}
+a:hover
+{
+    text-decoration: underline;
+}
+ul
+{
+    list-style-type: none;
+}
+input
+{
+    border: none;
+}
+input[type=text],
+input[type=radio],
+input[type=checkbox],
+input[type=input],
+input[type=password],
+textarea,
+select,
+option
+{
+    border: 1px solid #888;
+    border-radius: 5px;
+    background-color: #fefefe;
+    padding: 1px 5px;
+}
+    select,
+    option
+    {
+        padding: 0 5px;
+    }
+textarea:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+select:focus,
+option:focus
+{
+    background-color: #fffee3;
+}
+input[disabled=disabled],
+select[disabled=disabled],
+select[disabled=disabled] option,
+textarea[disabled=disabled]
+{
+    background-color: #eee;
+}
+input, textarea
+{
+    font-family: arial;
+    font-size: 1em;
+}
+label, select, option,
+input[type="checkbox"],
+input[type="radio"]
+{
+    cursor: pointer;
+}
+input[type="file"]
+{
+    display: none;
+}
+p
+{
+    line-height: 150%;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+td,
+tr
+{
+    -ms-word-wrap: break-word;
+    word-wrap: break-word; 
+}
+div.medio
+{
+    clear:both;
+    display:block;
+}
+.loading
+{
+    background: url(/images/loading.gif) no-repeat;
+    display:none;
+    height: 32px;
+    position:absolute;
+    width: 32px;
+}
+.compulsory
+{
+    color: red;
+    cursor: help;
+    font-size: 1.3em;
+    padding: 2px 3px 0;
+    vertical-align: middle;
+}
+.hide
+{
+    display: none;
+}
+h1.title
+{
+    font-family : "league-gothic";
+    font-size: 2.6em;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+h2.subtitle
+{
+    font-size: 1.3em;
+    margin: 20px 0 10px;
+}
+
+/* ---------------- buttons ---------------- */
+
+button
+{
+    background: none;
+    cursor: pointer;
+}
+.button,
+.submit_button,
+.remove_button,
+.upload_button
+{
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.4), 0 1px 2px rgba(0,0,0,0.45);    
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 5px 10px;
+    text-shadow: 0 -0.1em 0 #333;    
+}
+    .button
+    {
+        background: #58a9e2;
+        background: -moz-linear-gradient(top,  #58a9e2 0%, #346cce 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#58a9e2), color-stop(100%,#346cce)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #58a9e2 0%,#346cce 100%); /* Chrome10+,Safari5.1+ */
+        background: linear-gradient(to bottom,  #58a9e2 0%,#346cce 100%); /* W3C */
+        border: 1px solid #000;
+    }
+    .submit_button
+    {
+        background: #8579de;
+        background: -moz-linear-gradient(top,  #8579de 0%, #4b3cb5 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8579de), color-stop(100%,#4b3cb5)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #8579de 0%,#4b3cb5 100%); /* Chrome10+,Safari5.1+ */
+        background: linear-gradient(to bottom,  #8579de 0%, #4b3cb5 100%); /* W3C */
+        display: block;
+    }
+    .remove_button
+    {
+        background: #ff5b5b;
+        background: -moz-linear-gradient(top,  #ff5b5b 0%, #ad0606 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff5b5b), color-stop(100%,#ad0606)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #ff5b5b 0%,#ad0606 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #ff5b5b 0%,#ad0606 100%); /* Opera 11.10+ */
+        background: linear-gradient(to bottom,  #ff5b5b 0%,#ad0606 100%); /* W3C */
+        font-size: 0.9em;
+        padding: 3px 10px;
+    }
+    .upload_button
+    {
+        background: #db924e;
+        background: -moz-linear-gradient(top,  #db924e 0%, #e07108 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#db924e), color-stop(100%,#e07108)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #db924e 0%,#e07108 100%); /* Chrome10+,Safari5.1+ */
+        background: linear-gradient(to bottom,  #db924e 0%,#e07108 100%); /* W3C */
+        font-size: 0.9em;
+        padding: 3px 10px;
+    }
+        .button:hover,
+        .remove_button:hover,
+        .upload_button:hover,
+        .submit_button:hover
+        {
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+            box-shadow: inset 0 0 6px #000;
+            text-decoration: none;
+        }
+    
+/* ---------------- windows ---------------- */
+
+.wrapper_fadein_window
+{
+    display: none;
+    position: fixed;
+}
+    .disable_window_background
+    {
+        background-color: #000;
+        position: fixed;
+        opacity: 0.6;
+        height: 100%;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+    }
+    .fadein_window
+    {
+        background-color: #fff;
+        border: 3px double #aaa;
+        border-radius: 10px;
+        -moz-box-shadow: 0 0 5px #000 inset, 0 0 15px #000;
+        -webkit-box-shadow: 0 0 5px #000 inset, 0 0 15px #000;
+        box-shadow: 0 0 5px #000 inset, 0 0 15px #000;
+        margin: 10px 10px 10px 10px;
+        width: 400px;
+        padding: 20px 30px;
+        position: absolute;
+        z-index: 101;
+    }
+        .wrapper_fadein_window .close
+        {
+            background: none;
+            color: #999;
+            float: right;
+            font-size: 1.3em;
+            margin: -10px -10px 0 0;
+        }
+            .wrapper_fadein_window .close:before
+            {
+                content: "x";
+            }
+            .wrapper_fadein_window .close:hover
+            {
+                color: #000;
+            }        
+        .fadein_window h1
+        {
+            color: #666;
+            margin: 30px 0 20px;
+            text-align: center;
+        }
+
+/* ---------------- tables ---------------- */
+
+.table
+{
+     border-collapse:collapse;
+     width: 100%;
+}
+.table td,
+.table th
+{
+    border: 1px solid #ccc;
+    padding: 5px 10px 5px 10px;
+    text-align: left;
+}
+    .show_tr
+    {
+        background: #eee;
+    }
+    .button_container
+    {
+        width: 30px;
+    }
+        .show
+        {
+            background: url(/images/enter_icon.png) no-repeat;
+            display: block;
+            height: 27px;
+            width: 30px;
+        }
+    .table .field_year
+    {
+        text-align: center;
+        width: 50px;
+    }
+    .table .field_score
+    {
+        text-align: center;
+        width: 90px;        
+    }
+    .table .field_picture
+    {
+        height: 60px;
+        padding: 0;
+        width: 60px;
+    }
+        .table .field_picture img
+        {
+            height: auto;
+            display: block;
+            width: 100%;
+        }
+            .table .field_picture img.hide
+            {
+                display: none;
+            }
+        
+/* ---------------- body ---------------- */
+
+body
+{
+    background-color: #fefefe;
+    font-family: arial, verdana;
+    font-size: 0.85em;
+}
+    @-moz-document url-prefix()
+    {
+        body
+        {
+            position: relative; /* --->  resuelve problema firefox scroll jquery draggable */
+        }
+    }
+    #content
+    {
+        margin: 0 auto;
+        padding-bottom: 10px;
+        width: 890px;
+    }
+    
+/* ---------------- header ---------------- */  
+    
+#main_header_wrapper
+{
+    background-color: #F3F3F3;
+    background-image: linear-gradient(#F9F9F9, #F3F3F3);
+    border-bottom: 1px solid #eee;
+    left: 0;
+    min-height: 59px;
+    position: fixed;
+    width: 100%;
+    z-index: 90;
+}
+    .onscroll
+    {
+        box-shadow: 0 0 15px #000;
+        opacity: 0.8;
+    }
+    #main_header_wrapper h1
+    {
+        display: inline-block;
+        font-size: 2.2em;
+        margin: 10px 0 10px 20px;
+        text-shadow:
+                    0 1px 0 #ccc,
+                    0 2px 0 #c9c9c9,
+                    0 3px 0 #bbb,
+                    0 4px 0 #b9b9b9,
+                    0 5px 0 #aaa,
+                    0 6px 1px rgba(0,0,0,.1),
+                    0 0 5px rgba(0,0,0,.1),
+                    0 1px 3px rgba(0,0,0,.3),
+                    0 3px 5px rgba(0,0,0,.2),
+                    0 5px 10px rgba(0,0,0,.25);
+    }
+    #main_header_wrapper .loading
+    {
+        margin: 10px 10px 10px 10px;
+    }
+#nav
+{
+    float: right;
+    margin: 15px 25px 0;
+}
+    #nav li
+    {
+        display: inline-block;
+        margin-left: 10px;
+    }
+        #nav a
+        {
+            color: #777;
+            font-family : "league-gothic";
+            font-size: 2em;
+            display: block;
+        }
+            #nav a:hover
+            {
+                color: #000;
+                text-decoration: none;
+            }
+
+/* --------- main --------- */
+
+#main_wrapper
+{
+    padding-top: 85px;
+    overflow: hidden;
+}
+
+/* --------- footer --------- */
+
+#main_footer_wrapper
+{
+    border-top: 1px solid #eee;
+    margin-top: 60px;
+    padding-top: 10px;
+}
+    #eduardocasas
+    {
+        float: right;
+    }
+    #main_footer_wrapper li
+    {
+        display: inline-block;
+    }
+        #main_footer_wrapper a
+        {
+            font-weight: bold;
+        }
+        #main_footer_wrapper .separator:after
+        {
+            content:"|";
+            padding-left: 5px;
+        }

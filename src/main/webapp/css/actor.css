@@ -1,0 +1,34 @@
+/* ---------- Index ---------- */
+
+#add_actor_button
+{
+    float: right;
+}
+#wrapper_add_actor_window form
+{
+    margin-left: 210px;
+}
+    #wrapper_add_actor_window h1
+    {
+        font-family : "league-gothic";
+        font-size: 2.3em;
+        font-weight: normal;
+        margin-bottom: 10px;
+    }
+    #wrapper_add_actor_window table
+    {
+        margin: 0 auto;
+    }
+    #wrapper_add_actor_window th
+    {
+        text-align: right;
+        padding: 5px;
+    }
+    #wrapper_add_actor_window td
+    {
+        padding: 5px;
+    }
+        #submit_add_actor_button
+        {
+            margin-top: 20px;
+        }

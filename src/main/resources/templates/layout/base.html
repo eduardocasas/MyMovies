@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" th:fragment="page">
+    <head>
+        <meta charset="utf-8" />
+        <title th:include="this :: title" />
+        <meta name="description" content="Mi colección de películas." />
+        <meta name="author" content="@eduardo_casas" />
+        <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="/css/base.css" type="text/css" />
+        <link th:replace="this :: css"/>
+        <script type="text/javascript" src="/javascript/bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="/javascript/base.js"></script>
+        <script th:replace="this :: javascript"></script>
+    </head>
+    <body>
+        <div id="content">
+            <header id="main_header_wrapper">
+                <h1>MyMovies</h1>
+                <span class="loading"></span>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="/">home</a></li>
+                        <li><a href="/movies">peliculas</a></li>
+                        <li><a href="/cast">actores</a></li>
+                        <li><a href="/directors">directores</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div th:include="this :: content" id="main_wrapper" />
+            <footer id="main_footer_wrapper">
+                <span id="eduardocasas">Author: <a href="http://www.eduardocasas.com" target="_blank">eduardo casas</a></span>
+                <ul>
+                    <li class="separator">License: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported</a></li>
+                    <li>Powered by <a href="http://projects.spring.io/spring-framework/" target="_blank">spring mvc</a></li>
+                    <li class="separator">Fork me on <a href="https://github.com/eduardocasas/">GitHub</a></li>
+                </ul>
+            </footer>
+        </div>
+    </body>
+</html>
