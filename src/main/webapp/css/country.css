@@ -1,0 +1,125 @@
+/* ---------- index ---------- */
+
+#add_country_button
+{
+    float: right;
+}
+#wrapper_add_country_window form
+{
+    margin: 200px 0 0 210px;
+}
+    #wrapper_add_country_window h1
+    {
+        font-family : "league-gothic";
+        font-size: 2.3em;
+        font-weight: normal;
+        margin-bottom: 10px;
+    }
+    #wrapper_add_country_window table
+    {
+        margin: 0 auto;
+    }
+    #wrapper_add_country_window th
+    {
+        text-align: right;
+        padding: 5px;
+    }
+    #wrapper_add_country_window td
+    {
+        padding: 5px;
+    }
+        #submit_add_actor_button
+        {
+            margin-top: 20px;
+        }
+        
+/* ---------- info ---------- */
+
+h2
+{
+    clear: both;    
+}
+#cancel_edit_button,
+#save_edit_button,
+#edit_country_button,
+#remove_country_button
+{
+    float: right;
+    margin-left: 10px;
+}
+#wrapper_remove_country_window .fadein_window
+{
+    margin: 100px 0 0 190px;
+    text-align: center;
+}
+    #wrapper_remove_country_window h1
+    {
+        clear: both;
+        font-size: 1.2em;
+        margin-top: 30px;
+        text-align: center;
+    }
+    #wrapper_remove_country_window .button
+    {
+        margin: 10px 5px 20px 5px;
+        text-align: center;
+        width: 50px;
+    }
+#picture
+{
+    float: right;
+    margin: 0;
+}
+#remove_picture
+{
+    display: none;
+    float: right;
+    margin: 20px 15px 0 0;
+}
+#upload_picture_form
+{
+    clear: both;
+    display: none;
+    float: right;
+    margin-top: 20px;
+}
+#data
+{
+    margin: 10px 0 0 0;
+}
+    #data th,
+    #data td
+    {
+        padding: 6px 3px;
+    }
+        #data th
+        {
+            text-align: right;
+        }
+        #data .edit_field
+        {
+            padding: 3px 3px;
+        }
+#country_movie_table thead,
+#country_person_table thead
+{
+    display: inline-block;
+}
+#country_movie_table tbody,
+#country_person_table tbody
+{
+    display: block;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+     #country_movie_table .field_title
+    {
+        min-width: 555px;
+        width: 555px;
+    }
+    #country_person_table .field_surname
+    {
+        min-width: 380px;
+        width: 380px;    
+    }

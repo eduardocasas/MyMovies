@@ -12,12 +12,18 @@
         <script type="text/javascript" src="/javascript/bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="/javascript/base.js"></script>
         <script th:replace="this :: javascript"></script>
+        <script th:replace="this :: javascript_2"></script>
     </head>
     <body>
         <div id="content">
             <header id="main_header_wrapper">
                 <h1>MyMovies</h1>
                 <span class="loading"></span>
+                <button id="display_configuration_menu_button"></button>
+                <ul id="configuration_menu">
+                    <li><a href="/countries">paises</a></li>
+                    <li><a href="/logout">cerrar sesión</a></li>
+                </ul>
                 <nav id="nav">
                     <ul>
                         <li><a href="/">home</a></li>

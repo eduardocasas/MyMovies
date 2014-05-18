@@ -2,7 +2,8 @@
 <html th:include="layout/base :: page">
     <title th:fragment="title">Persona</title>
     <link rel="stylesheet" href="/css/person.css" type="text/css" th:fragment="css" />
-    <script type="text/javascript" src="/javascript/person.js" th:fragment="javascript"></script>
+    <script type="text/javascript" src="/javascript/bower_components/eduardocasas-jquery.tablesorter/tablesorter.min.js" th:fragment="javascript"></script>
+    <script type="text/javascript" src="/javascript/person.js" th:fragment="javascript_2"></script>
     <div th:fragment="content">
         <iframe id="upload_picture_iframe" name="upload_picture_iframe" th:src="'/person/'+${person['id']}+'/upload-picture'"></iframe>
         <div id="wrapper_remove_person_window" class="wrapper_fadein_window">
@@ -59,20 +60,20 @@
             <table id="director_movie_table" class="table">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th class="button_container"></th>
                         <th class="field_picture"></th>
-                        <th>Título</th>
-                        <th>País</th>
-                        <th class="field_year">Año</th>
-                        <th class="field_score">Puntuación</th>
+                        <th class="field_title" th:attr="data-sort=string">Título</th>
+                        <th class="field_country" th:attr="data-sort=string">País</th>
+                        <th class="field_year" th:attr="data-sort=int">Año</th>
+                        <th class="field_score" th:attr="data-sort=float">Puntuación</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="movie : ${directorMovies}" th:attr="data-movie_id=${movie['id']}">
                         <td class="button_container"><a class="show" th:href="@{|/movies/${movie['id']}|}" /></td>
                         <td class="field_picture"><img th:class="${movie['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/movie/'+${movie['id']}+'/tiny.jpg'" th:alt="'Foto: '+${movie['title']}" /></td>
-                        <td th:text="${movie['title']}" />
-                        <td th:text="${movie['country_name']}" />
+                        <td class="field_title" th:text="${movie['title']}" />
+                        <td class="field_country"><a th:href="@{|/countries/${movie['country_id']}|}"><img th:class="${movie['country_picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/country/'+${movie['country_id']}+'/tiny.jpg'" th:alt="${movie['country_name']}" th:title="${movie['country_name']}" /></a></td>
                         <td th:text="${movie['year']}"  class="field_year" />
                         <td th:text="${movie['score']}"  class="field_score" />
                     </tr>
@@ -85,7 +86,7 @@
                             <input type="checkbox" th:value="${movie['id']}" />
                             <span th:text="${movie['title']}" />
                         </td>
-                        <td th:text="${movie['country_name']}" />
+                        <td class="field_country"><a th:href="@{|/countries/${movie['country_id']}|}"><img th:class="${movie['country_picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/country/'+${movie['country_id']}+'/tiny.jpg'" th:alt="${movie['country_name']}" th:title="${movie['country_name']}" /></a></td>
                         <td th:text="${movie['year']}"  class="field_year" />
                         <td th:text="${movie['score']}"  class="field_score" />
                     </tr>
@@ -96,12 +97,12 @@
             <table id="actor_movie_table" class="table">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th class="button_container"></th>
                         <th class="field_picture"></th>
-                        <th>Título</th>
-                        <th>País</th>
-                        <th class="field_year">Año</th>
-                        <th class="field_score">Puntuación</th>
+                        <th class="field_title" th:attr="data-sort=string">Título</th>
+                        <th class="field_country" th:attr="data-sort=string">País</th>
+                        <th class="field_year" th:attr="data-sort=int">Año</th>
+                        <th class="field_score" th:attr="data-sort=flout">Puntuación</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -109,7 +110,7 @@
                         <td class="button_container"><a class="show" th:href="@{|/movies/${movie['id']}|}" /></td>
                         <td class="field_picture"><img th:class="${movie['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/movie/'+${movie['id']}+'/tiny.jpg'" th:alt="'Foto: '+${movie['title']}" /></td>
                         <td th:text="${movie['title']}" />
-                        <td th:text="${movie['country_name']}" />
+                        <td class="field_country"><a th:href="@{|/countries/${movie['country_id']}|}"><img th:class="${movie['country_picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/country/'+${movie['country_id']}+'/tiny.jpg'" th:alt="${movie['country_name']}" th:title="${movie['country_name']}" /></a></td>
                         <td th:text="${movie['year']}"  class="field_year" />
                         <td th:text="${movie['score']}"  class="field_score" />
                     </tr>
@@ -122,7 +123,7 @@
                             <input type="checkbox" th:value="${movie['id']}" />
                             <span th:text="${movie['title']}" />
                         </td>
-                        <td th:text="${movie['country_name']}" />
+                        <td class="field_country"><a th:href="@{|/countries/${movie['country_id']}|}"><img th:class="${movie['country_picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/country/'+${movie['country_id']}+'/tiny.jpg'" th:alt="${movie['country_name']}" th:title="${movie['country_name']}" /></a></td>
                         <td th:text="${movie['year']}"  class="field_year" />
                         <td th:text="${movie['score']}"  class="field_score" />
                     </tr>

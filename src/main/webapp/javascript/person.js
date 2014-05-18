@@ -7,6 +7,8 @@ $(document).ready
         
         var URL = window.location.href.split('#')[0]+'/';
         
+        $('.table').stupidtable();
+        
         $('.movie_section').hide();
         $(window.location.hash).show();
         $('a[href="'+window.location.hash+'"]').addClass('selected');

@@ -15,7 +15,7 @@ $(document).ready
                         <td class="field_picture"><img src="/pictures/person/'+id+'/tiny.jpg" /></td>\n\
                         <td>'+name+'</td>\n\
                         <td>'+surname+'</td>\n\
-                        <td>'+country+'</td>\n\
+                        <td class="field_country"><a href="/countries/'+country+'"><img src="/pictures/country/'+country+'/tiny.jpg" title="'+$('#form_person :selected').text()+'"></a></td>\n\
                         <td class="field_year">'+birthday+'</td></tr>'
                     ).hide().fadeIn('slow');
                     $('#wrapper_add_director_window option').removeAttr('selected');
@@ -58,7 +58,7 @@ $(document).ready
                         },
                         function(response)
                         {
-                            appendPerson(response, name, surname, birthday, $('#form_country :selected').text());
+                            appendPerson(response, name, surname, birthday, country);
                         }
                     );
                 } else {

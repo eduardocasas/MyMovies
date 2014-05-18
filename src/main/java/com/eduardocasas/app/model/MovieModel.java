@@ -30,7 +30,7 @@ public class MovieModel extends Database {
     
     public ResultSet getDirectorCollection(int director_id) throws Exception {
         try {
-            PreparedStatement = Connection.prepareStatement("SELECT movie.id, movie.title, movie.year, movie.score, movie.picture, country.name AS country_name FROM movie LEFT OUTER JOIN country ON movie.country_id = country.id LEFT OUTER JOIN movie_director ON movie.id = movie_director.movie_id WHERE director_id = ?");
+            PreparedStatement = Connection.prepareStatement("SELECT movie.id, movie.title, movie.year, movie.score, movie.picture, country.picture AS country_picture, country_id, country.name AS country_name FROM movie LEFT OUTER JOIN country ON movie.country_id = country.id LEFT OUTER JOIN movie_director ON movie.id = movie_director.movie_id WHERE director_id = ?");
             PreparedStatement.setInt(1, director_id);
         } catch (SQLException e) {
             LogService.insert(e);
@@ -41,7 +41,7 @@ public class MovieModel extends Database {
     
     public ResultSet getActorCollection(int actor_id) throws Exception {
         try {
-            PreparedStatement = Connection.prepareStatement("SELECT movie.id, movie.title, movie.year, movie.score, movie.picture, country.name AS country_name FROM movie LEFT OUTER JOIN country ON movie.country_id = country.id LEFT OUTER JOIN movie_actor ON movie.id = movie_actor.movie_id WHERE actor_id = ?");
+            PreparedStatement = Connection.prepareStatement("SELECT movie.id, movie.title, movie.year, movie.score, movie.picture, country.picture AS country_picture, country_id, country.name AS country_name FROM movie LEFT OUTER JOIN country ON movie.country_id = country.id LEFT OUTER JOIN movie_actor ON movie.id = movie_actor.movie_id WHERE actor_id = ?");
             PreparedStatement.setInt(1, actor_id);
         } catch (SQLException e) {
             LogService.insert(e);
@@ -52,7 +52,7 @@ public class MovieModel extends Database {
     
     public ResultSet getCollection() throws Exception {
         try {
-            PreparedStatement = Connection.prepareStatement("SELECT movie.id, movie.title, movie.year, movie.score, movie.picture, country.name AS country_name FROM movie LEFT OUTER JOIN country ON movie.country_id = country.id");
+            PreparedStatement = Connection.prepareStatement("SELECT movie.id, movie.title, movie.year, movie.score, movie.picture, country.picture AS country_picture, country_id, country.name AS country_name FROM movie LEFT OUTER JOIN country ON movie.country_id = country.id");
         } catch (SQLException e) {
             LogService.insert(e);
         }
@@ -60,9 +60,20 @@ public class MovieModel extends Database {
         return PreparedStatement.executeQuery();
     }
     
+    public ResultSet getCollectionByCountry(int country_id) throws Exception {
+        try {
+            PreparedStatement = Connection.prepareStatement("SELECT movie.id, movie.title, movie.year, movie.score, movie.picture, country.name AS country_name FROM movie LEFT OUTER JOIN country ON movie.country_id = country.id WHERE movie.country_id = ?");
+            PreparedStatement.setInt(1, country_id);
+        } catch (SQLException e) {
+            LogService.insert(e);
+        }
+        
+        return PreparedStatement.executeQuery();
+    }
+    
     public ResultSet getLastItemsCollection() throws Exception {
         try {
-            PreparedStatement = Connection.prepareStatement("SELECT movie.id, movie.title, movie.year, movie.score, movie.picture, country.name AS country_name FROM movie LEFT OUTER JOIN country ON movie.country_id = country.id ORDER BY movie.id DESC LIMIT 0, 5");
+            PreparedStatement = Connection.prepareStatement("SELECT movie.id, movie.title, movie.year, movie.score, movie.picture, country.picture AS country_picture, country_id, country.name AS country_name FROM movie LEFT OUTER JOIN country ON movie.country_id = country.id ORDER BY movie.id DESC LIMIT 0, 20");
         } catch (SQLException e) {
             LogService.insert(e);
         }

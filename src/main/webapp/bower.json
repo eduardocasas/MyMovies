@@ -8,5 +8,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "eduardocasas-jquery.tablesorter": "~1.0.1"
+  }
 }

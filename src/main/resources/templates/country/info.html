@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html th:include="layout/base :: page">
+    <title th:fragment="title">País</title>
+    <link rel="stylesheet" href="/css/country.css" type="text/css" th:fragment="css" />
+    <script type="text/javascript" src="/javascript/bower_components/eduardocasas-jquery.tablesorter/tablesorter.min.js" th:fragment="javascript"></script>
+    <script type="text/javascript" src="/javascript/country.js" th:fragment="javascript_2"></script>
+    <div th:fragment="content">
+        <iframe id="upload_picture_iframe" name="upload_picture_iframe" th:src="'/countries/'+${country['id']}+'/upload-picture'"></iframe>
+        <div id="wrapper_remove_country_window" class="wrapper_fadein_window">
+            <article class="fadein_window">
+                <button class="close" title="cerrar"></button>
+                <h1>¿Seguro que quieres eliminar este país?</h1>
+                <button id="remove_yes" class="button">Sí</button>
+                <button id="remove_no" class="button">No</button>
+            </article>
+            <div class="disable_window_background"></div>
+        </div>
+        <button class="button hide" id="save_edit_button">Guardar</button>
+        <button class="button hide" id="cancel_edit_button">Cancelar</button>
+        <button class="button display_window" id="remove_country_button" data-window="wrapper_remove_country_window">Eliminar</button>
+        <button class="button" id="edit_country_button">Editar</button>
+        <h1 class="title"><span class="field_name edit_field" th:text="${country['name']}" /></h1>
+        <img width="240px" height="120px" th:class="${country['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/country/'+${country['id']}+'/big.jpg'" th:alt="${country['name']}" id="picture" />
+        <form th:action="'/countries/'+${country['id']}+'/upload-picture'" method="post" enctype="multipart/form-data" id="upload_picture_form" target="upload_picture_iframe">
+            <input type="file" id="upload_picture" name="upload_picture" />
+        </form>
+        <button id="remove_picture" class="remove_button">Borrar</button>
+        <table id="data">
+            <tbody>
+                <tr>
+                    <th>Películas:</th>
+                    <td class="field_score" th:text="${#arrays.length(countryMovies)}" />
+                </tr>
+                <tr>
+                    <th>Personas:</th>
+                    <td class="field_score" th:text="${#arrays.length(countryPeople)}" />
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="subtitle">Películas</h2>
+        <table class="table" id="country_movie_table">
+            <thead>
+                <tr>
+                    <th class="button_container"></th>
+                    <th class="field_picture"></th>
+                    <th th:attr="data-sort=string" class="field_title">Título</th>
+                    <th th:attr="data-sort=int" class="field_year">Año</th>
+                    <th th:attr="data-sort=float" class="field_score">Puntuación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="movie : ${countryMovies}">
+                    <td class="button_container"><a class="show" th:href="@{|/movies/${movie['id']}|}" /></td>
+                    <td class="field_picture"><img th:class="${movie['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/movie/'+${movie['id']}+'/tiny.jpg'" th:alt="'Foto: '+${movie['title']}" /></td>
+                    <td th:text="${movie['title']}" class="field_title" />
+                    <td th:text="${movie['year']}" class="field_year" />
+                    <td th:text="${movie['score']}" class="field_score" />
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="subtitle">Personas</h2>
+        <table class="table" id="country_person_table">
+            <thead>
+                <tr>
+                    <th class="button_container"></th>
+                    <th class="field_picture"></th>
+                    <th th:attr="data-sort=string" class="field_name">Nombre</th>
+                    <th th:attr="data-sort=string" class="field_surname">Apellido</th>
+                    <th th:attr="data-sort=int" class="field_year">Año</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="person : ${countryPeople}">
+                    <td class="button_container"><a class="show" th:href="@{|/person/${person['id']}/#actuación|}" /></td>
+                    <td class="field_picture"><img th:class="${person['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/person/'+${person['id']}+'/tiny.jpg'" th:alt="'Foto: '+${person['name']}+' '+${person['surname']}" /></td>
+                    <td th:text="${person['name']}" class="field_name" />
+                    <td th:text="${person['surname']}" class="field_surname" />
+                    <td th:text="${person['birthday']}" class="field_year" />
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</html>

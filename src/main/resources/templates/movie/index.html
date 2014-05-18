@@ -45,7 +45,7 @@
                     <th></th>
                     <th class="field_picture"></th>
                     <th>Título</th>
-                    <th>País</th>
+                    <th class="field_country">País</th>
                     <th class="field_year">Año</th>
                     <th class="field_score">Puntuación</th>
                 </tr>
@@ -55,7 +55,7 @@
                     <td class="button_container"><a class="show" th:href="@{|/movies/${movie['id']}|}" /></td>
                     <td class="field_picture"><img th:class="${movie['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/movie/'+${movie['id']}+'/tiny.jpg'" th:alt="'Foto: '+${movie['title']}" /></td>
                     <td th:text="${movie['title']}" />
-                    <td th:text="${movie['country_name']}" />
+                    <td class="field_country"><a th:href="@{|/countries/${movie['country_id']}|}"><img th:class="${movie['country_picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/country/'+${movie['country_id']}+'/tiny.jpg'" th:alt="${movie['country_name']}" th:title="${movie['country_name']}" /></a></td>
                     <td th:text="${movie['year']}" class="field_year" />
                     <td th:text="${movie['score']}" class="field_score" />
                 </tr>

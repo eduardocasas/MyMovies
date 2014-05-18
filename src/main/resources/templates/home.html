@@ -2,46 +2,56 @@
 <html th:include="layout/base :: page">
     <title th:fragment="title">Portada</title>
     <link rel="stylesheet" href="/css/home.css" type="text/css" th:fragment="css" />
+    <script type="text/javascript" src="/javascript/bower_components/eduardocasas-jquery.tablesorter/tablesorter.min.js" th:fragment="javascript"></script>
+    <script type="text/javascript" src="/javascript/home.js" th:fragment="javascript_2"></script>
     <div th:fragment="content">
         <section class="section">
             <h1 class="title">Novedades</h1>
             <h2 class="subtitle">Últimas películas añadidas</h2>
             <table class="table">
-                <tr>
-                    <th></th>
-                    <th class="field_picture"></th>
-                    <th>Título</th>
-                    <th>País</th>
-                    <th class="field_year">Año</th>
-                    <th class="field_score">Puntuación</th>
-                </tr>
-                <tr th:each="movie : ${movies}">
-                    <td class="button_container"><a class="show" th:href="@{|/movies/${movie['id']}|}" /></td>
-                    <td class="field_picture"><img th:class="${movie['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/movie/'+${movie['id']}+'/tiny.jpg'" th:alt="'Foto: '+${movie['title']}" /></td>
-                    <td th:text="${movie['title']}" />
-                    <td th:text="${movie['country_name']}" />
-                    <td th:text="${movie['year']}" class="field_year" />
-                    <td th:text="${movie['score']}" class="field_score" />
-                </tr>
+                <thead>
+                    <tr>
+                        <th class="button_container"></th>
+                        <th class="field_picture"></th>
+                        <th class="field_title" th:attr="data-sort=string">Título</th>
+                        <th class="field_country" th:attr="data-sort=string">País</th>
+                        <th class="field_year" th:attr="data-sort=int">Año</th>
+                        <th class="field_score" th:attr="data-sort=float">Puntuación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="movie : ${movies}">
+                        <td class="button_container"><a class="show" th:href="@{|/movies/${movie['id']}|}" /></td>
+                        <td class="field_picture"><img th:class="${movie['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/movie/'+${movie['id']}+'/tiny.jpg'" th:alt="'Foto: '+${movie['title']}" /></td>
+                        <td th:text="${movie['title']}" class="field_title" />
+                        <td class="field_country"><a th:href="@{|/countries/${movie['country_id']}|}"><img th:class="${movie['country_picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/country/'+${movie['country_id']}+'/tiny.jpg'" th:alt="${movie['country_name']}" th:title="${movie['country_name']}" /></a></td>
+                        <td th:text="${movie['year']}" class="field_year" />
+                        <td th:text="${movie['score']}" class="field_score" />
+                    </tr>
+                </tbody>
             </table>
             <h2 class="subtitle">Últimos personajes añadidos</h2>
             <table class="table">
-                <tr>
-                    <th></th>
-                    <th class="field_picture"></th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>País</th>
-                    <th class="field_year">Año</th>
-                </tr>
-                <tr th:each="person : ${people}">
-                    <td class="button_container"><a class="show" th:href="@{|/person/${person['id']}|}" /></td>
-                    <td class="field_picture"><img th:class="${person['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/person/'+${person['id']}+'/tiny.jpg'" th:alt="'Foto: '+${person['name']}+' '+${person['surname']}" /></td>
-                    <td class="field_name" th:text="${person['name']}" />
-                    <td class="field_surname" th:text="${person['surname']}" />
-                    <td class="field_country" th:text="${person['country_name']}" />
-                    <td class="field_year" th:text="${person['birthday']}" />
-                </tr>
+                <thead>
+                    <tr>
+                        <th class="button_container"></th>
+                        <th class="field_picture"></th>
+                        <th th:attr="data-sort=string" class="field_name">Nombre</th>
+                        <th th:attr="data-sort=string" class="field_surname">Apellidos</th>
+                        <th th:attr="data-sort=string" class="field_country">País</th>
+                        <th th:attr="data-sort=int" class="field_year">Año</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="person : ${people}">
+                        <td class="button_container"><a class="show" th:href="@{|/person/${person['id']}|}" /></td>
+                        <td class="field_picture"><img th:class="${person['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/person/'+${person['id']}+'/tiny.jpg'" th:alt="'Foto: '+${person['name']}+' '+${person['surname']}" /></td>
+                        <td class="field_name" th:text="${person['name']}" />
+                        <td class="field_surname" th:text="${person['surname']}" />
+                        <td class="field_country"><a th:href="@{|/countries/${person['country_id']}|}"><img th:class="${person['country_picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/country/'+${person['country_id']}+'/tiny.jpg'" th:alt="${person['country_name']}" th:title="${person['country_name']}" /></a></td>
+                        <td class="field_year" th:text="${person['birthday']}" />
+                    </tr>
+                </tbody>
             </table>
         </section>
         <section class="section">

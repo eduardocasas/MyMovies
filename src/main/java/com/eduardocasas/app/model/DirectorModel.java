@@ -30,7 +30,7 @@ public class DirectorModel extends Database {
     
     public ResultSet getCollection() throws Exception {
         try {
-            PreparedStatement = Connection.prepareStatement("SELECT director.id, person_id, person.name, surname, birthday, picture, country_id, country.name AS country_name FROM director LEFT OUTER JOIN person ON director.person_id = person.id LEFT OUTER JOIN country ON person.country_id = country.id");
+            PreparedStatement = Connection.prepareStatement("SELECT director.id, person_id, person.name, surname, birthday, person.picture, country_id, country.picture AS country_picture, country.name AS country_name FROM director LEFT OUTER JOIN person ON director.person_id = person.id LEFT OUTER JOIN country ON person.country_id = country.id");
         } catch (SQLException e) {
             LogService.insert(e);
         }
@@ -40,7 +40,7 @@ public class DirectorModel extends Database {
     
     public ResultSet getCollection(int movie_id) throws Exception {
         try {
-            PreparedStatement = Connection.prepareStatement("SELECT director.id, person_id, person.name, surname, birthday, picture, country_id, country.name AS country_name FROM director LEFT OUTER JOIN person ON director.person_id = person.id LEFT OUTER JOIN country ON person.country_id = country.id LEFT OUTER JOIN movie_director ON director.id = movie_director.director_id WHERE movie_director.movie_id = ?");
+            PreparedStatement = Connection.prepareStatement("SELECT director.id, person_id, person.name, surname, birthday, person.picture, country_id, country.picture AS country_picture, country.name AS country_name FROM director LEFT OUTER JOIN person ON director.person_id = person.id LEFT OUTER JOIN country ON person.country_id = country.id LEFT OUTER JOIN movie_director ON director.id = movie_director.director_id WHERE movie_director.movie_id = ?");
             PreparedStatement.setInt(1, movie_id);
         } catch (SQLException e) {
             LogService.insert(e);

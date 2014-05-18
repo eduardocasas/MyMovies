@@ -5,6 +5,10 @@ $(document).ready
         
         /* ------------ info ------------*/
 
+        if (typeof(jQuery().stupidtable) != 'undefined') {
+            $('.table').stupidtable();
+        }
+
         function turnEditModeOff()
         {
             $('#remove_movie_button, #edit_movie_button').show();
@@ -223,7 +227,7 @@ $(document).ready
                                     '<tr><td class="button_container"><a href="/movies/'+response+'" class="show"></a></td>\n\
                                     <td  class="field_picture"></td>\n\
                                     <td>'+title+'</td>\n\
-                                    <td>'+$('#form_country :selected').text()+'</td>\n\
+                                    <td class="field_country"><a href="/countries/'+country+'"><img src="/pictures/country/'+country+'/tiny.jpg" title="'+$('#form_country :selected').text()+'"></a></td>\n\
                                     <td  class="field_year">'+year+'</td>\n\
                                     <td class="field_score">'+score+'</td></tr>'
                                 ).hide().fadeIn('slow');

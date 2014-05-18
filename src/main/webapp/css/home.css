@@ -2,3 +2,13 @@
 {
     margin-bottom: 20px;
 }
+.table thead
+{
+    display: inline-block;
+}
+.table tbody
+{
+    display: block;
+    max-height: 300px;
+    overflow-y: auto;
+}

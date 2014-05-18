@@ -1,0 +1,23 @@
+{
+  "name": "eduardocasas-jquery.tablesorter",
+  "version": "1.0.1",
+  "dependencies": {
+    "jquery": "< 2"
+  },
+  "directory": "eduardocasas",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eduardocasas/jquery-tablesorter.git"
+  },
+  "homepage": "https://github.com/eduardocasas/jquery-tablesorter",
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.1",
+    "commit": "cd995b8dcb1166e68200546d2b68a57c59a4ddfd"
+  },
+  "_source": "git://github.com/eduardocasas/jquery-tablesorter.git",
+  "_target": "~1.0.1",
+  "_originalSource": "eduardocasas-jquery.tablesorter",
+  "_direct": true
+}

@@ -75,6 +75,7 @@ $(document).ready
                 $('html, body').animate({ scrollTop: 0 }, 600);
             }
         );
+        $('#display_configuration_menu_button').click(function(){ $('#configuration_menu').toggle() });
 
         /* ----- Fadein Windows ----- */
 
@@ -92,6 +93,15 @@ $(document).ready
             {
                 event.preventDefault();
                 $(this).closest('.wrapper_fadein_window').hide();
+            }
+        );
+        $(document).keydown
+        (
+            function(event)
+            {
+                if (event.keyCode === 27) {
+                    $('.wrapper_fadein_window .close').trigger('click');
+                }
             }
         );
 

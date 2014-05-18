@@ -26,9 +26,20 @@ public class PersonModel extends Database {
         return PreparedStatement.executeQuery();
     }
     
+    public ResultSet getCollectionByCountry(int country_id) throws Exception {
+        try {
+            PreparedStatement = Connection.prepareStatement("SELECT person.id, person.name, surname, birthday, person.picture, country_id, country.name AS country_name FROM person LEFT OUTER JOIN country ON person.country_id = country.id WHERE person.country_id = ?");
+            PreparedStatement.setInt(1, country_id);
+        } catch (SQLException e) {
+            LogService.insert(e);
+        }
+        
+        return PreparedStatement.executeQuery();
+    }
+    
     public ResultSet getLastItemsCollection() throws Exception {
         try {
-            PreparedStatement = Connection.prepareStatement("SELECT person.id, person.name, person.surname, person.birthday, person.picture, country.name AS country_name FROM person LEFT OUTER JOIN country ON person.country_id = country.id ORDER BY person.id DESC LIMIT 0, 5");
+            PreparedStatement = Connection.prepareStatement("SELECT person.id, person.name, person.surname, person.birthday, person.picture, country.picture AS country_picture, country_id, country.name AS country_name FROM person LEFT OUTER JOIN country ON person.country_id = country.id ORDER BY person.id DESC LIMIT 0, 20");
         } catch (SQLException e) {
             LogService.insert(e);
         }

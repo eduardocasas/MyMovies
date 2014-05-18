@@ -51,11 +51,11 @@
         <table id="director_table" class="table">
             <thead>
                 <tr>
-                    <th></th>
+                    <th class="button_container"></th>
                     <th class="field_picture"></th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>País</th>
+                    <th class="field_name">Nombre</th>
+                    <th class="field_surname">Apellidos</th>
+                    <th class="field_country">País</th>
                     <th class="field_year">Año</th>
                 </tr>
             </thead>
@@ -65,7 +65,7 @@
                     <td class="field_picture"><img th:class="${director['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/person/'+${director['person_id']}+'/tiny.jpg'" th:alt="'Foto: '+${director['name']}+' '+${director['surname']}" /></td>
                     <td class="field_name" th:text="${director['name']}" />
                     <td class="field_surname" th:text="${director['surname']}" />
-                    <td class="field_country" th:text="${director['country_name']}" />
+                    <td class="field_country"><a th:href="@{|/countries/${director['country_id']}|}"><img th:class="${director['country_picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/country/'+${director['country_id']}+'/tiny.jpg'" th:alt="${director['country_name']}" th:title="${director['country_name']}" /></a></td>
                     <td class="field_year" th:text="${director['birthday']}" />
                 </tr>
             </tbody>

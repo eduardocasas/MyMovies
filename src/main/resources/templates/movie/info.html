@@ -2,7 +2,8 @@
 <html th:include="layout/base :: page">
     <title th:fragment="title">Película</title>
     <link rel="stylesheet" href="/css/movie.css" type="text/css" th:fragment="css" />
-    <script type="text/javascript" src="/javascript/movie.js" th:fragment="javascript"></script>
+    <script type="text/javascript" src="/javascript/bower_components/eduardocasas-jquery.tablesorter/tablesorter.min.js" th:fragment="javascript"></script>
+    <script type="text/javascript" src="/javascript/movie.js" th:fragment="javascript_2"></script>
     <div th:fragment="content">
         <iframe id="upload_picture_iframe" name="upload_picture_iframe" th:src="'/movies/'+${movie['id']}+'/upload-picture'"></iframe>
         <div id="wrapper_remove_movie_window" class="wrapper_fadein_window">
@@ -50,21 +51,21 @@
             <table id="director_movie_table" class="table">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th class="button_container"></th>
                         <th class="field_picture"></th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>País</th>
-                        <th class="field_year">Año</th>
+                        <th class="field_name" th:attr="data-sort=string">Nombre</th>
+                        <th th:attr="data-sort=string">Apellido</th>
+                        <th class="field_country" th:attr="data-sort=string">País</th>
+                        <th class="field_year" th:attr="data-sort=int">Año</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="director : ${movieDirectors}" th:attr="data-director_id=${director['id']}">
                         <td class="button_container"><a class="show" th:href="@{|/person/${director['person_id']}/#directors|}" /></td>
                         <td class="field_picture"><img th:class="${director['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/person/'+${director['person_id']}+'/tiny.jpg'" th:alt="'Foto: '+${director['name']}+' '+${director['surname']}" /></td>
-                        <td th:text="${director['name']}" />
+                        <td th:text="${director['name']}" class="field_name" />
                         <td th:text="${director['surname']}" />
-                        <td th:text="${director['country_name']}" />
+                        <td class="field_country"><a th:href="@{|/countries/${director['country_id']}|}"><img th:class="${director['country_picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/country/'+${director['country_id']}+'/tiny.jpg'" th:alt="${director['country_name']}" th:title="${director['country_name']}" /></a></td>
                         <td th:text="${director['birthday']}" class="field_year" />
                     </tr>
                 </tbody>
@@ -77,7 +78,7 @@
                             <span th:text="${director['name']}" />
                         </td>
                         <td th:text="${director['surname']}" />
-                        <td th:text="${director['country_name']}" />
+                        <td class="field_country"><a th:href="@{|/countries/${director['country_id']}|}"><img th:class="${director['country_picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/country/'+${director['country_id']}+'/tiny.jpg'" th:alt="${director['country_name']}" th:title="${director['country_name']}" /></a></td>
                         <td th:text="${director['birthday']}" class="field_year" />
                     </tr>
                 </tfoot>
@@ -88,21 +89,21 @@
             <table id="actor_movie_table" class="table">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th class="button_container"></th>
                         <th class="field_picture"></th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>País</th>
-                        <th class="field_year">Año</th>
+                        <th class="field_name" th:attr="data-sort=string">Nombre</th>
+                        <th th:attr="data-sort=string">Apellido</th>
+                        <th class="field_country" th:attr="data-sort=string">País</th>
+                        <th class="field_year" th:attr="data-sort=int">Año</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="actor : ${movieActors}" th:attr="data-actor_id=${actor['id']}">
                         <td class="button_container"><a class="show" th:href="@{|/person/${actor['person_id']}/#actuación|}" /></td>
                         <td class="field_picture"><img th:class="${actor['picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/person/'+${actor['person_id']}+'/tiny.jpg'" th:alt="'Foto: '+${actor['name']}+' '+${actor['surname']}" /></td>
-                        <td th:text="${actor['name']}" />
+                        <td th:text="${actor['name']}" class="field_name" />
                         <td th:text="${actor['surname']}" />
-                        <td th:text="${actor['country_name']}" />
+                        <td class="field_country"><a th:href="@{|/countries/${actor['country_id']}|}"><img th:class="${actor['country_picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/country/'+${actor['country_id']}+'/tiny.jpg'" th:alt="${actor['country_name']}" th:title="${actor['country_name']}" /></a></td>
                         <td th:text="${actor['birthday']}" class="field_year" />
                     </tr>
                 </tbody>
@@ -115,7 +116,7 @@
                             <span th:text="${actor['name']}" />
                         </td>
                         <td th:text="${actor['surname']}" />
-                        <td th:text="${actor['country_name']}" />
+                        <td class="field_country"><a th:href="@{|/countries/${actor['country_id']}|}"><img th:class="${actor['country_picture'] == '1'} ? 'normal' : 'hide'" th:src="'/pictures/country/'+${actor['country_id']}+'/tiny.jpg'" th:alt="${actor['country_name']}" th:title="${actor['country_name']}" /></a></td>
                         <td th:text="${actor['birthday']}" class="field_year" />
                     </tr>
                 </tfoot>
