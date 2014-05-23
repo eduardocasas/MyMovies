@@ -1,4 +1,4 @@
-#src/main/webapp/pictures/*
+src/main/webapp/pictures/*
 *.directory
 target/*
 src/main/resources/parameters.ini
