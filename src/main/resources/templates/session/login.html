@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html th:include="layout/base :: page">
+    <title th:fragment="title">Login</title>
+    <link rel="stylesheet" href="/css/login.css" type="text/css" th:fragment="css" />
+    <div th:fragment="content">
+        <form th:action="'/session/login_process'" method="post" id="login_form">
+            <input type="text" name="username" id="username" required="required" autofocus="autofocus" placeholder="username" />
+            <input type="password" name="password" id="password" required="required" placeholder="password" />
+            <input type="submit" id="submit_login_button" class="submit_button" value="entrar" />
+        </form>
+    </div>
+</html>

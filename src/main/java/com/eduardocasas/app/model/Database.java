@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import org.ini4j.Ini;
+import org.ini4j.Profile.Section;
+import java.io.File;
 
 /**
  * @author      Eduardo Casas <eduardocasas.com>
@@ -13,14 +16,17 @@ import java.sql.PreparedStatement;
  */
 public class Database {
 
-    static final String DRIVER = "com.mysql.jdbc.Driver";
-    static final String DATABASE = "mymovies";
-    static final String SERVER = "jdbc:mysql://localhost/"+DATABASE;
-    static final String USER = "root";
-    static final String PASSWORD = "";
+    private String DRIVER;
+    private String SERVER;
+    private String USER;
+    private String PASSWORD;
     
     protected Connection Connection;
     protected PreparedStatement PreparedStatement;
+    
+    public Database() throws Exception {
+        setParameters();        
+    }
     
     public void connect() throws Exception {
         try {
@@ -29,6 +35,15 @@ public class Database {
         } catch (SQLException e) {
             LogService.insert(e);
         }
+    }
+    
+    private void setParameters() throws Exception {
+        Ini ini = new Ini(new File("src/main/resources/parameters.ini"));
+        Section section = ini.get("data_base");
+        DRIVER = section.get("DRIVER");
+        SERVER = section.get("SERVER");
+        USER = section.get("USER");
+        PASSWORD = section.get("PASSWORD");
     }
 
 }

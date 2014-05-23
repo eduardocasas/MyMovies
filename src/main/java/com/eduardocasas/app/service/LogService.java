@@ -12,7 +12,7 @@ public class LogService {
 
     public static void insert(Exception e) throws Exception {
         System.setOut(new PrintStream(new FileOutputStream("src/main/webapp/WEB-INF/log/exception.log", true)));
-        System.out.println(e);    
+        System.out.println(e);
     }
     
 }

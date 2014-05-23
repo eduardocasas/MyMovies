@@ -1,0 +1,17 @@
+#login_form
+{
+    margin: 80px auto;
+    width: 200px;
+}
+    #username,
+    #password
+    {
+        display: block;
+        margin-bottom: 10px;
+        padding: 4px 8px;
+    }
+    #submit_login_button
+    {
+        cursor: pointer;
+        margin: 20px auto;
+    }

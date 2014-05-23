@@ -2,10 +2,10 @@
 -- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Mar 16, 2014 at 08:37 PM
--- Server version: 5.5.35
--- PHP Version: 5.3.10-1ubuntu3.10
+-- Host: 127.0.0.1
+-- Generation Time: May 23, 2014 at 08:39 PM
+-- Server version: 5.5.37
+-- PHP Version: 5.3.24
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `actor` (
   `person_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `person` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 -- --------------------------------------------------------
 
@@ -42,8 +42,9 @@ CREATE TABLE IF NOT EXISTS `actor` (
 CREATE TABLE IF NOT EXISTS `country` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
+  `picture` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
@@ -56,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `director` (
   `person_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `person` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
@@ -73,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `movie` (
   `picture` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `movietable_country_foreign` (`country_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 -- --------------------------------------------------------
 
@@ -116,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `person` (
   `picture` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `country_foreign` (`country_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Constraints for dumped tables

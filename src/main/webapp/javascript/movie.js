@@ -5,7 +5,7 @@ $(document).ready
         
         /* ------------ info ------------*/
 
-        if (typeof(jQuery().stupidtable) != 'undefined') {
+        if (typeof($.stupidtable) != 'undefined') {
             $('.table').stupidtable();
         }
 
@@ -146,10 +146,7 @@ $(document).ready
                         $.each
                         (
                             $('.input_edit_mode'),
-                            function() 
-                            {
-                                $(this).data('previous_value', $(this).val());
-                            }
+                            function() { $(this).data('previous_value', $(this).val()) }
                         );
                         $('#field_country span').data('country_id', $('#field_country :selected').val());
                         $('#field_country span').text($('#field_country :selected').text());
@@ -166,34 +163,13 @@ $(document).ready
                 (
                     window.location.href+'/remove',
                     { },
-                    function(r)
-                    {
-                        window.location = '/movies';
-                    }
+                    function(r) { window.location = '/movies' }
                 );
             }
         );
-        $('#remove_no').click
-        (
-            function()
-            {
-                $('#wrapper_remove_movie_window').hide();
-            }
-        );
-        $('#cancel_edit_button').click
-        (
-            function()
-            {
-                turnEditModeOff();
-            }
-        );
-        $('#edit_movie_button').click
-        (
-            function()
-            {
-                turnEditModeOn();
-            }
-        );
+        $('#remove_no').click(function(){ $('#wrapper_remove_movie_window').hide() });
+        $('#cancel_edit_button').click(function(){ turnEditModeOff() });
+        $('#edit_movie_button').click(function(){ turnEditModeOn() });
 
         /* ------------ index ------------*/
 
