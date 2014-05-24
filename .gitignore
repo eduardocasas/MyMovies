@@ -2,3 +2,4 @@ src/main/webapp/pictures/*
 *.directory
 target/*
 src/main/resources/parameters.ini
+src/main/webapp/vendor/bower_components/*

@@ -2,7 +2,7 @@
 <html th:include="layout/base :: page">
     <title th:fragment="title">Película</title>
     <link rel="stylesheet" href="/css/movie.css" type="text/css" th:fragment="css" />
-    <script type="text/javascript" src="/javascript/bower_components/eduardocasas-jquery.tablesorter/tablesorter.min.js" th:fragment="javascript"></script>
+    <script type="text/javascript" src="/vendor/bower_components/eduardocasas-jquery.tablesorter/tablesorter.min.js" th:fragment="javascript"></script>
     <script type="text/javascript" src="/javascript/movie.js" th:fragment="javascript_2"></script>
     <div th:fragment="content">
         <iframe id="upload_picture_iframe" name="upload_picture_iframe" th:src="'/movies/'+${movie['id']}+'/upload-picture'"></iframe>
